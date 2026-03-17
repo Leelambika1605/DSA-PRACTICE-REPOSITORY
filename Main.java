@@ -1,25 +1,19 @@
-import java.util.Scanner;
-
 public class Main {
 
-    public static void main(String[] args) {
-        String str = "abcd";
-        String str1 = new String("xyz");
+    static class BitManipulator {
+        private int number;
 
-        //Strings are immutable
-        Scanner sc = new Scanner(System.in);
-        String name ;
-        name = sc.nextLine();
-        System.out.println(name);
+        BitManipulator(int number) {
+            this.number = number;
+        }
 
-        //length of string
-        String fullname = "Leelambika R";
-        System.out.println(fullname.length());
-
-        //concatrnation 
-        String first = "leela";
-        String last = "R";
-        String fullname1 = first + " " + last;
-        System.out.println(fullname1);
+        public int clearIthBit(int i) {
+            return number & (~(1 << i));
+        }
     }
- }
+
+    public static void main(String[] args) {
+        BitManipulator obj = new BitManipulator(10);
+        System.out.println(obj.clearIthBit(1));
+    }
+}
